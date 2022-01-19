@@ -12,7 +12,8 @@ a,h3
 color:white;
 text-decoration:none;
 }
-a:link, a:visited {
+a:link,a:visited 
+{
   background-color: #b3568f;
   color: white;
   padding: 10px 25px;
@@ -21,7 +22,7 @@ a:link, a:visited {
   display: inline-block;
 }
 
-a:hover, a:active {
+a:active,a:hover {
   background-color: #401e2d;
 }
 </style>
@@ -37,7 +38,7 @@ a:hover, a:active {
 </tr>
 <tr><br>
 <td>
-<a href="new_booking_page.php" target="main"><h3>New Booking</h3></a>
+<a href="new_booking.php" target="main"><h3>New Booking</h3></a>
 </td>
 </tr>
 <tr><br>
@@ -50,5 +51,6 @@ a:hover, a:active {
 </tr>
 </table>
 <br>
+
 </body>
 </html>

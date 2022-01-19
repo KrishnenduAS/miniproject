@@ -26,9 +26,26 @@ else
 <head>  
     <title>PHP login system</title>  
     <link rel = "stylesheet" type = "text/css" href = "user.css">   
+    <style>a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+      </style>
 </head>  
 <body>
-<div class="bg-img">
+<div class="bg-img"><a href="home.php" class="previous">&laquo; Previous</a>
   <form method="post" class="container">
     <h1>Login</h1>
 

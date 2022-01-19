@@ -1,13 +1,19 @@
 <?php
-include "dbconnection.php";
-$name=$_GET['r'];
-$query="delete from feedbacktable where 'name' = '$name'";
-$data=mysqli_query($conn,$query);
-if($data)
+
+include "dbconnection.php"; // Using database connection file here
+
+$name = $_GET['name']; // get id through query string
+
+$del = mysqli_query($conn,"delete from feedbacktable where name = '$name'"); // delete query
+
+if($del)
 {
-    echo "deleted from database";
+    mysqli_close($conn); // Close connection
+    header("location:editfeedback.php"); // redirects to all records page
+    exit;	
 }
-else{
-    echo " not deleted from database";
+else
+{
+    echo "Error deleting record"; // display error message if not delete
 }
 ?>

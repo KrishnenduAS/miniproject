@@ -6,7 +6,6 @@ $row=mysqli_fetch_assoc($q);
 echo "<b>WELCOME</b> ".$_SESSION['login_user'];
 session_abort();
 ?>
-
 <html>
 <head>
     <title>profile</title>

@@ -15,6 +15,13 @@
 		text-align:left;
 		
 	}
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(odd){background-color: #f2f2f2}
+
+th {
+  background-color: #401e2d;
+  color:white;
+}
             </style>
 </head>
 <body>

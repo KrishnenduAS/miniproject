@@ -16,6 +16,8 @@
                 <li><a href="userlogin.php">Login</a></li>
                 <li><a href="feedbacks.php">Feedback</a></li>
                 <li><a href="aboutus.php">About us</a></li>
+                <li><a href="admin/adminlogin.php">Settings</a></li>
+
             </ul>
         </div>
         <div class="Welcome-text">

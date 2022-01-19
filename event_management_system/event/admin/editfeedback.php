@@ -31,10 +31,16 @@
         background:darkred;
         color:#fff;
     }
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(odd){background-color: #f2f2f2}
+
+th {
+  background-color: #401e2d;
+  color:white;
+}
             </style>
 </head>
 <body>
-    <form action=" " method = "post" enctype="multipart/form-data">
     <table border="1"  frame="box" cellpadding="16"  style="border:2px solid black;padding:8px">
         <thead>
 
@@ -58,9 +64,7 @@ while($row=mysqli_fetch_array($query_run))
     <td><?php echo $row['email']; ?></td>
     <td><?php echo $row['feed']; ?></td>
     <td><img src="<?php echo "http://localhost/event_management_system/event/uploads/".$row['fimage'];  ?>" height="100px" width="150px"></td>
-    <td>
-        
-        <button type= "submit" name ="submit" class ="btn">Delete</button>
+    <td><a href="delete.php?name=<?php echo $row['name']; ?>">Delete</a></td>
         
 
     </form>

@@ -73,13 +73,29 @@ session_abort();
 		padding:10px;
 		border-radius:5px;
     }
-	
+	a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
 </style>
 
 	</head>
 	
 	
 <body  style="background-image: url('0.jpg');background-size: cover;">
+<a href="\event_management_system\event\home.php" class="previous">&laquo; Previous</a>
 <h1 style="text-align:center">WELCOME USER!!!</h1>
 
 <form method="POST" action="registration.php">
@@ -116,6 +132,7 @@ session_abort();
 <td colspan="3" style="text-align:center;">
 <button type="reset" style="background-color:#f54542;" >RESET</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button type="submit" name="submit" style="background-color:#4CAF50;">SUBMIT</button></td></tr>
+
 
 
 </table>

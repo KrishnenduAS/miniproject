@@ -1,120 +1,129 @@
-<?php
-include "dbconnection.php";
-if(isset($_POST['submit']))
-{
-    $fname=$_POST["fname"];
-    $lname=$_POST["lname"];
-    $country=$_POST["country"];
-    $subject=$_POST["subject"];
-    $query="insert into contactus(fname,lname,country,subject) values ('$fname',' $lname','$country','$subject')";
-$query_num=mysqli_query($conn,$query);
-if($query_num)
-{
-
-echo '<script>alert("successfull.")</script>';
-header("Location:aboutus.php");
-}
-else{
-    echo '<script>alert("not successfull.")</script>';
-    header("Location:aboutus.php");
-}
-
-}
-?>
-
+<!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body
-{
-background-color:#401e2d;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
-* {
+
+html {
   box-sizing: border-box;
 }
 
-/* Style inputs */
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-/* Style the container/contact section */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 10px;
-}
-
-/* Create two columns that float next to eachother */
 .column {
   float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  background-color: #401e2d;
 }
 
-/* Clear floats after the columns */
-.row:after {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #401e2d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
   content: "";
-  display: table;
   clear: both;
+  display: table;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column, input[type=submit] {
+.title {
+  color: grey;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
     width: 100%;
-    margin-top: 0;
+    display: block;
   }
+  a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
 }
 </style>
 </head>
 <body>
+<a href="\event_management_system\event\home.php" class="previous">&laquo; Previous</a>
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>This event management system software is designed to help event planners more easily navigate every aspect of the event process and finding out the best place/venue for events in there locality. The event planners can register in this portal and use the services they are offered like Wedding, Corporate / Commercial events, Birthday party, live music and orchestra, Entertainment shows and stalls, launch celebration, promotional activities, celebrity event/stage shows, conference, seminar Etc. They can also specify the types of service help they are offering like Anchoring, Venue Decoration, Sound and Lighting, DJ. Stage Set Up etc.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
 
-<div class="container">
-  <div style="text-align:center">
-    <h2>Contact Us</h2>
-    <p>Swing by for a cup of coffee, or leave us a message:</p>
-  </div>
-  <div class="row">
-    <div class="column">
-      <img src="1.jpg" style="width:100%">
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO & Founder</p>
+        
+        <p>jane@example.com</p>
+       
+      </div>
     </div>
-    <div class="column">
-      <form action="contactus.php">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname" placeholder="Your name..">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname" placeholder="Your last name..">
-        <label for="country">Country</label>
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
-        <input type="submit" name="submit" value="submit">
-      </form>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Director</p>
+       
+        <p>mike@example.com</p>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+       
+        <p>john@example.com</p>
+      
+      </div>
     </div>
   </div>
 </div>
+
 </body>
 </html>
