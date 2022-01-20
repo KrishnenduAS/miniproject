@@ -66,25 +66,20 @@ session_abort();
 
 <tr>
 <th>VENUE NAME</th>       
-<td colspan="2"><select>
-            <?php echo $options;?>
-        </select></td></tr>
-<br><br>
-<?php
-include "dbconnection.php";
-$query = "SELECT * FROM `venuetable`";
-$result2 = mysqli_query($conn, $query);
+<td>
+<select>
+    <option disabled selected>-- Select City --</option>
+    <?php
+        include "dbconnection.php";  // Using database connection file here
+        $records = mysqli_query($conn, "SELECT vname From venuetable");  // Use select query here 
 
-$options = "";
-
-while($row2 = mysqli_fetch_array($result2))
-{
-    $options = $options."<option>$row2[1]</option>";
-}
-
-
-?>
-  
+        while($data = mysqli_fetch_array($records))
+        {
+            echo "<option value='". $data['vname'] ."'>" .$data['vname'] ."</option>";  // displaying data in option menu
+        }	
+    ?>  
+  </select>
+  </td></tr>
 
 <tr>
 <th>DATE</th>
@@ -95,7 +90,7 @@ while($row2 = mysqli_fetch_array($result2))
 <td colspan="2"><input size="50" name="time" placeholder="Time" type="text" required></td></tr>
 <br><br>
 <td><button type="reset" style="background-color:#f54542;" >RESET</button></td>
-<td></td><tr><td></td><td><button type="submit" name="submit" style="background-color:#4CAF50;">SUBMIT</button></td></tr>
+<td><button type="submit" name="submit" style="background-color:#4CAF50;">SUBMIT</button></td></tr>
   </td>
 </tr>
     </table>
