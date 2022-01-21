@@ -5,22 +5,29 @@ include "dbconnection.php";
 session_start();
 if(isset($_POST['submit']))
 {
-    $name=$_SESSION['login_user'];
-    $id=$_POST["id"];
+    
     $vname=$_POST["vname"];
     $date=$_POST["date"];
-    $time=$_POST["time"];
-   
-    $sql="insert into bookingtable values ('$name','$id','$vname','$date','$time')";
-    if($sql==true)
+    $sql="select * from bookingtable where vname='$vname' && date = '$date'";
+    $result=mysqli_query($conn,$sql);
+$num=mysqli_num_rows($result);
+if($num==1)
 {
-header("location:next.php");
+    echo '<script>alert("THE CURRENT DATE AND VENUE IS NOT AVAILABLE")</script>';
+	
+	
 }
 else
 {
-echo("failed");
+    $name=$_SESSION['login_user'];
+    $id=$_POST["id"];
+    $time=$_POST["time"];
+   
+    $sql="insert into bookingtable values ('$name','$id','$vname','$date','$time')";
+    if($sql==true){
+	header('location:next.php');}
+    $result=mysqli_query($conn,$sql);
 }
-$result=mysqli_query($conn,$sql);
 }
 
 session_abort();
@@ -67,7 +74,7 @@ session_abort();
 <tr>
 <th>VENUE NAME</th>       
 <td>
-<select>
+<select name="vname">
     <option disabled selected>-- Select City --</option>
     <?php
         include "dbconnection.php";  // Using database connection file here
@@ -83,11 +90,11 @@ session_abort();
 
 <tr>
 <th>DATE</th>
-<td colspan="2"><input size="50" name="date" placeholder="date" type="text" required></td></tr>
+<td colspan="2"><input size="50" name="date" placeholder="YYYY/MM/DD" type="text" required></td></tr>
 <br><br>
 <tr>
 <th>TIME</th>
-<td colspan="2"><input size="50" name="time" placeholder="Time" type="text" required></td></tr>
+<td colspan="2"><input size="50" name="time" placeholder="--:--:--" type="text" required></td></tr>
 <br><br>
 <td><button type="reset" style="background-color:#f54542;" >RESET</button></td>
 <td><button type="submit" name="submit" style="background-color:#4CAF50;">SUBMIT</button></td></tr>
