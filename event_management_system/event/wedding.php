@@ -1,8 +1,9 @@
+
+
 <!DOCTYPE html>
 <html>
 <?php
 include "dbconnection.php";
-session_start();
 if(isset($_POST['submit']))
 {
     
@@ -19,18 +20,18 @@ if($num==1)
 }
 else
 {
-    $name=$_SESSION['login_user'];
+    $name=$_SESSION['name'];
     $id=$_POST["id"];
     $time=$_POST["time"];
-   
-    $sql="insert into bookingtable values ('$name','$id','$vname','$date','$time')";
+    $number=$_POST["number"];
+    session_start();
+    $sql="insert into bookingtable values ('$name','$id','$vname','$date','$time','$number')";
     if($sql==true){
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }
 }
 
-session_abort();
 ?>
 <html>
 <head>
@@ -63,7 +64,7 @@ session_abort();
       
 <tr>
 <th>NAME</th>
-<td colspan="2"><input size="50" name="name" placeholder="name" value="<?php echo $_SESSION['login_user']; ?>" readonly></td></tr>
+<td colspan="2"><input size="50" name="name" placeholder="name" ></td></tr>
 <br><br>
 <tr>
 <th>ID</th>
@@ -87,7 +88,11 @@ session_abort();
     ?>  
   </select>
   </td></tr>
-
+  <tr>
+<th>NUMBER OF GUESTS</th>
+<td colspan="2"><input size="50" name="number" placeholder="-----" type="text" required></td></tr>
+<br><br>
+<tr>
 <tr>
 <th>DATE</th>
 <td colspan="2"><input size="50" name="date" placeholder="YYYY/MM/DD" type="text" required></td></tr>

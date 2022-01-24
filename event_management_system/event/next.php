@@ -1,3 +1,97 @@
+<?php
+
+session_start();
+ include "dbconnection.php";
+ 
+if(isset($_POST["choice"])){
+  $food=$_POST["choice"];
+  $c=count($food);
+  $price=0.0;
+  
+  for($i=0;$i<$c;$i++){
+    if($food[$i]==1){
+      $price=$price+5000;
+    }
+    if($food[$i]==2){
+      $price=$price+5000;
+    }
+  
+    if($food[$i]==3){
+      $price=$price+5000;
+    }
+    if($food[$i]==4){
+      $price=$price+5000;
+    }
+    if($food[$i]==5){
+      $price=$price+5000;
+    }
+    if($food[$i]==6){
+      $price=$price+5000;
+    }
+    if($food[$i]==7){
+      $price=$price+5000;
+    }
+    if($food[$i]==8){
+      $price=$price+5000;
+    }
+    if($food[$i]==9){
+      $price=$price+5000;
+    }
+    if($food[$i]==10){
+      $price=$price+0;
+    }
+    if($food[$i]==11){
+      $price=$price+0;
+    }
+    if($food[$i]==12){
+      $price=$price+5000;
+    }
+    if($food[$i]==13){
+      $price=$price+5000;
+    }
+    if($food[$i]==14){
+      $price=$price+5000;
+    }
+    if($food[$i]==15){
+      $price=$price+0;
+    }
+    if($food[$i]==16){
+      $price=$price+0;
+    }
+    if($food[$i]==17){
+      $price=$price+5000;
+    }
+    if($food[$i]==18){
+      $price=$price+5000;
+    }
+    if($food[$i]==19){
+      $price=$price+5000;
+    }
+    if($food[$i]==20){
+      $price=$price+0;
+    }
+    if($food[$i]==21){
+      $price=$price+5000;
+    }
+    if($food[$i]==22){
+      $price=$price+5000;
+    }
+    if($food[$i]==23){
+      $price=$price+5000;
+    }
+   
+  }
+  echo "Final amount is : ".$price. "<br>" ;
+}
+
+
+session_destroy();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -70,22 +164,22 @@
 }
 </style>
 <body>
-
+<form action=" " method="post"
 <h1>Complete your Booking...</h1>
 <table>
     <tr>
     <td>EQUIPMENTS</td>
     <td>
     <label class="container">DJ
-        <input type="checkbox" checked="checked">
+        <input type="checkbox"name="choice[]" value="1">
         <span class="checkmark"></span>
     </label>
     <label class="container">STAGE
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="2">
         <span class="checkmark"></span>
     </label>
     <label class="container">MIKE AND SPEAKER
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="3">
         <span class="checkmark"></span>
     </label>
     </td><td></td>
@@ -94,28 +188,28 @@
     <td>FOOD</td>
     <td>
     <label class="container">BREAKFAST
-        <input type="checkbox" checked="checked">
+        <input type="checkbox"  name="choice[]" value="4">
         <span class="checkmark"></span>
     </label>
     <label class="container">LUNCH
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="5">
         <span class="checkmark"></span>
     </label>
     <label class="container">TEA & SNACKS
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="6">
         <span class="checkmark"></span>
     </label>
     </td>
     <td><label class="container">DINNER
-        <input type="checkbox" checked="checked">
+        <input type="checkbox" name="choice[]" value="7">
         <span class="checkmark"></span>
     </label>
     <label class="container">ONLY VEG
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="8">
         <span class="checkmark"></span>
     </label>
     <label class="container">VEG & NON VEG
-        <input type="checkbox">
+        <input type="checkbox" name="choice[]" value="9">
         <span class="checkmark"></span>
     </label></td>
     </tr>
@@ -123,54 +217,43 @@
     <td>DECORATIONS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select>
-    <option value="0">Select decoration:</option>
-    <option value="1">None</option>
-    <option value="2">Normal</option>
-    <option value="3">Delux</option>
-    <option value="0">Royal</option>
+     <select name="choice[]">
+    <option value="10" name="choice[]">Select decoration:</option>
+    <option value="11" name="choice[]">None</option>
+    <option value="12" name="choice[]">Normal</option>
+    <option value="13" name="choice[]">Delux</option>
+    <option value="14" name="choice[]">Royal</option>
     </td>
 </tr>
 <tr>
 <td>FLOWERS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select>
-    <option value="0">Select:</option>
-    <option value="1">None</option>
-    <option value="2">Normal</option>
-    <option value="3">Delux</option>
-    <option value="0">Royal</option>
+     <select name="choice[]">
+    <option value="15" name="choice[]">Select:</option>
+    <option value="16" name="choice[]">None</option>
+    <option value="17" name="choice[]">Normal</option>
+    <option value="18" name="choice[]">Delux</option>
+    <option value="19" name="choice[]">Royal</option>
     </td>
     </tr>
     <tr>
 <td>SEATING</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select>
-    <option value="0">Select:</option>
-    <option value="1">CHAIR</option>
-    <option value="2">SOFA</option>
-    <option value="3">CHAIR AND SOFA</option>
+     <select name="choice[]">
+    <option value="20" name="choice[]">Select:</option>
+    <option value="21" name="choice[]">CHAIR</option>
+    <option value="22" name="choice[]">SOFA</option>
+    <option value="23" name="choice[]">CHAIR AND SOFA</option>
    
     </td>
     </tr>
-    <tr>
-<td>NUMBER OF GUESTS</td>
-    <td>
-    <div class="custom-select" style="width:200px;">
-     <select>
-    <option value="0">Select:</option>
-    <option value="1">LESS THAN 1000</option>
-    <option value="2">1000-1500</option>
-    <option value="3">1500-2000</option>
-    <option value="3">2000-2500</option>
-    <option value="3">2500-3000</option>
-    </td>
-    </tr>
-    <tr>
+    
+    <tr><td>
+      <input type="submit" value="SUBMIT"/></td></tr>
 
    
-</table>
+</table></form>
 </body>
 </html>
