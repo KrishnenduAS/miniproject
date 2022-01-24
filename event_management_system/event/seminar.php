@@ -61,7 +61,7 @@ else
 <body>
     <form action="wedding.php" method = "post" enctype="multipart/form-data">
         <table class="center" frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px">
-<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Book your Big Day</th></tr>
+<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Plan your big ideas</th></tr>
       
 <tr>
 <th>NAME</th>
@@ -70,7 +70,10 @@ else
 <tr>
 <th>EVENT TYPE</th>
 <td colspan="2"><select name="etype">
-    <option value="wedding" >wedding</option></select></td></tr>
+    <option value="corporate events" >corporate events</option> 
+    <option value=" conference">conference</option>
+    <option value="promotions">promotions</option>
+    </select></td></tr>
 <br><br>
 
 <tr>

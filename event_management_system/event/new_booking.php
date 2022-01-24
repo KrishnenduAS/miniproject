@@ -70,19 +70,19 @@ img {
     <button class="button">START</button>
     <p><center><b>planning your big day events.... </b></p></center>
   </div></form>
-  <form method="post" action="wedding.php">
+  <form method="post" action="birthday.php">
   <div class="column" style="background-color:#bbb;">
     <h2><center>CELEBRATE MOMENTS</center> </h2>
     <img src="cele.jpg" height=200></img>
     <button class="button">START</button>
     <p><center><b>plan your birthday,entertainment shows,celebrity events,stage shows..</b></p></center>
   </div></form>
-  <form method="post" action="wedding.php">
+  <form method="post" action="seminar.php">
   <div class="column" style="background-color:#ccc;">
     <h2><center>SEMINARS</center></h2>
     <img src="semi.jpg" height=200></img>
     <button class="button">START</button>
-    <p><center><b>plan your cooperate events, promotions, conference...</b></p></center>
+    <p><center><b>plan your corporate events, promotions, conference...</b></p></center>
   </div></form>
 </div>
 

@@ -169,14 +169,11 @@ if(isset($_POST["choice"])){
   transform: rotate(45deg);
 }
 
-        body{
+body{
             width:400px;
             margin:0 auto;
             background-color:#401e2d;
         }
-        </style>
-</head>
-<body style="background-color:#b3568f;">
 </style>
 <body>
 <form action=" " method="post">
