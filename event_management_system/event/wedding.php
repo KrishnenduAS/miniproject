@@ -28,6 +28,8 @@ else
     $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time')";
     if($sql==true){
         $_SESSION['idwedd'] = $number;
+        $_SESSION['idname'] = $name;
+        $_SESSION['iddate'] = $date;
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }

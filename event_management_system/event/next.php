@@ -7,7 +7,6 @@ $number = -999;
    $number = $_SESSION['idwedd'];
   
  }
- 
 if(isset($_POST["choice"])){
   $food=$_POST["choice"];
   $c=count($food);
@@ -25,13 +24,13 @@ if(isset($_POST["choice"])){
       $price=$price+5000;
     }
     if($food[$i]==4){
-      $price=100*$number;
+      $price=null0*$number;
     }
     if($food[$i]==5){
       $price=150*$number;
     }
     if($food[$i]==6){
-      $price=100*$number;
+      $price=null0*$number;
     }
     if($food[$i]==7){
       $price=200*$number;
@@ -42,7 +41,9 @@ if(isset($_POST["choice"])){
     if($food[$i]==9){
       $price=200*$number;
     }
-    if($food[$i]==10){
+
+    
+    if($food[$i]==null){
       $price=$price+0;
     }
     if($food[$i]==11){
@@ -86,8 +87,8 @@ if(isset($_POST["choice"])){
     }
    
   }
-  //echo "Final amount is : ".$price. "<br>" ;
-  echo "<script>alert(".$price.");</script>";
+  
+  echo "----------Final amount is : -------".$price. "<br>" ;
 }
 
 
@@ -161,7 +162,7 @@ if(isset($_POST["choice"])){
   left: 9px;
   top: 5px;
   width: 5px;
-  height: 10px;
+  height: nullpx;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
@@ -182,93 +183,92 @@ if(isset($_POST["choice"])){
 <form action=" " method="post">
 <h1>Complete your Booking...</h1>
 <table>
-    <tr>
+<tr>
     <td>EQUIPMENTS</td>
     <td>
-    <label class="container">DJ
-        <input type="checkbox"name="choice[]" value="1">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">STAGE
-        <input type="checkbox" name="choice[]" value="2">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">MIKE AND SPEAKER
-        <input type="checkbox" name="choice[]" value="3">
-        <span class="checkmark"></span>
-    </label>
-    </td><td></td>
-    </tr>
-    <tr>
+    <div class="custom-select" style="width:200px;">
+     <select name="equipment">
+     <option value="null">Select:</option>
+    <option value="STAGE,MIKE $ SPEAKER">STAGE,MIKE $ SPEAKER</option>
+    <option value="DJ,STAGE">DJ,STAGE</option>
+    <option value="DJ">DJ</option>
+   
+    </td><br>
+</tr>
+<br>
+<tr>
     <td>FOOD</td>
     <td>
-    <label class="container">BREAKFAST
-        <input type="checkbox"  name="choice[]" value="4">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">LUNCH
-        <input type="checkbox" name="choice[]" value="5">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">TEA & SNACKS
-        <input type="checkbox" name="choice[]" value="6">
-        <span class="checkmark"></span>
-    </label>
+    <div class="custom-select" style="width:200px;">
+     <select name="food">
+     <option value="null" >Select</option>
+    <option value="BREAKFAST">BREAKFAST</option>
+    <option value="LUNCH">LUNCH</option>
+    <option value="TEA $ SNACKS">TEA $ SNACKS</option>
+    <option value="DINNER">DINNER</option>
+    <option value="BREAKFAST $ LUNCH">BREAKFAST $ LUNCH</option>
+    <option value="LUNCH $ DINNER">LUNCH $ DINNER</option>
     </td>
-    <td><label class="container">DINNER
-        <input type="checkbox" name="choice[]" value="7">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">ONLY VEG
-        <input type="checkbox" name="choice[]" value="8">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">VEG & NON VEG
-        <input type="checkbox" name="choice[]" value="9">
-        <span class="checkmark"></span>
-    </label></td>
-    </tr>
     <tr>
     <td>DECORATIONS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select name="choice[]">
-    <option value="10" name="choice[]">Select decoration:</option>
-    <option value="11" name="choice[]">None</option>
-    <option value="12" name="choice[]">Normal</option>
-    <option value="13" name="choice[]">Delux</option>
-    <option value="14" name="choice[]">Royal</option>
+     <select name="decoration">
+    <option value="null" >Select decoration:</option>
+    <option value="None">None</option>
+    <option value="Normal">Normal</option>
+    <option value="Delux">Delux</option>
+    <option value="Royal">Royal</option>
     </td>
 </tr>
+<br>
 <tr>
 <td>FLOWERS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select name="choice[]">
-    <option value="15" name="choice[]">Select:</option>
-    <option value="16" name="choice[]">None</option>
-    <option value="17" name="choice[]">Normal</option>
-    <option value="18" name="choice[]">Delux</option>
-    <option value="19" name="choice[]">Royal</option>
+     <select name="flower"> 
+    <option value="null" >Select:</option>
+    <option value="None">None</option>
+    <option value="Normal" >Normal</option>
+    <option value="Delux" >Delux</option>
+    <option value="Royal" >Royal</option>
+
     </td>
     </tr>
     <tr>
 <td>SEATING</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select name="choice[]">
-    <option value="20" name="choice[]">Select:</option>
-    <option value="21" name="choice[]">CHAIR</option>
-    <option value="22" name="choice[]">SOFA</option>
-    <option value="23" name="choice[]">CHAIR AND SOFA</option>
+     <select name="seating">
+    <option value="null">Select:</option>
+    <option value="CHAIR" >CHAIR</option>
+    <option value="SOFA" >SOFA</option>
+    <option value="CHAIR AND SOFA" >CHAIR AND SOFA</option>
    
     </td>
     </tr>
     
     <tr><td>
-      <input type="submit" value="SUBMIT"/></td></tr>
-
-   
+      <input type="submit" value="SUBMIT" name="submit"/></td>
+      <td>
+      
+<?php
+include "dbconnection.php";
+if(isset($_POST['submit']))
+{
+    
+ 
+    $equipment=$_POST["equipment"];
+    $food=$_POST["food"];
+    $decoration=$_POST["decoration"];
+    $flower=$_POST["flower"];
+    $seating=$_POST["seating"];
+    $name=$_SESSION['idname'];
+    $date=$_SESSION['iddate'];
+    $sql="insert into bookingdetails values ('$equipment','$food','$decoration','$flower','$seating','$name','$date')";
+    $result=mysqli_query($conn,$sql);
+}
+?> 
 </table></form>
 </body>
 </html>

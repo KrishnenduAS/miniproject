@@ -59,7 +59,7 @@ else
             </style>
 </head>
 <body>
-    <form action="wedding.php" method = "post" enctype="multipart/form-data">
+    <form action="seminar.php" method = "post" enctype="multipart/form-data">
         <table class="center" frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px">
 <tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Plan your big ideas</th></tr>
       
