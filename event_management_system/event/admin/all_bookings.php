@@ -30,43 +30,31 @@ th {
         <thead>
 
 <tr>
+<th>EQUIPMENTS</th>
+<th>FOOD</th>
+<th>DECORATIONS</th>
+<th>FLOWERS</th>
+<th>SEATING</th>
 <th>NAME</th>
-<th>EVENT TYPE</th>
-<th>VENUE NAME</th>
-<th>NO:OF GUESTS</th>
 <th>DATE</th>
-<th>TIME</th>
-<th>STATUS</th>
 </tr>
 </thead>
 <?php
 include "dbconnection.php";
-$query="select * from bookingtable";
+$query="select * from bookingdetails";
 $query_run=mysqli_query($conn,$query);
 while($row=mysqli_fetch_array($query_run))
 {
     ?>
     <tr>
+    <td><?php echo $row['equipment']; ?></td>
+    <td><?php echo $row['food']; ?></td>
+    <td><?php echo $row['decoration']; ?></td>
+    <td><?php echo $row['flower']; ?></td>
+    <td><?php echo $row['seating']; ?></td>
     <td><?php echo $row['name']; ?></td>
-    <td><?php echo $row['etype']; ?></td>
-    <td><?php echo $row['vname']; ?></td>
-    <td><?php echo $row['number']; ?></td>
     <td><?php echo $row['date']; ?></td>
-    <td><?php echo $row['time']; ?></td>
-    <td>
-    <?php
-        if($row['status']==1)
-        {
-            echo '<p><button  style="background-color:#4CAF50 ;"><a href="status.php?bid='.$row['bid'].'&status=0" >Confirmed</a></button></p>';
-           
-        }
-        else
-        {
-            echo '<p><button  style="background-color:#f54542;"><a href="status.php?bid='.$row['bid'].'&status=1">Confirm</a></button></p>';
-        }
-
-    ?>
-    </td>
+    
     </tr>
     <?php
 }

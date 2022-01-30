@@ -25,7 +25,7 @@ else
     $number=$_POST["number"];
     $time=$_POST["time"];
     session_start();
-    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time')";
+    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time','$status')";
     if($sql==true){
         $_SESSION['idwedd'] = $number;
         $_SESSION['idname'] = $name;
