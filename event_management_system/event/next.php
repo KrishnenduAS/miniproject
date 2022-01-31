@@ -265,7 +265,8 @@ if(isset($_POST['submit']))
     $seating=$_POST["seating"];
     $name=$_SESSION['idname'];
     $date=$_SESSION['iddate'];
-    $sql="insert into bookingdetails values ('$equipment','$food','$decoration','$flower','$seating','$name','$date')";
+    $bid=$_SESSION['idbid'];
+    $sql="insert into bookingdetails values ('$equipment','$food','$decoration','$flower','$seating','$name','$date','$bid')";
     $result=mysqli_query($conn,$sql);
 }
 ?> 

@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 <?php
@@ -25,9 +26,12 @@ else
     $number=$_POST["number"];
     $time=$_POST["time"];
     session_start();
-    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time')";
+    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time','$status','$bid')";
     if($sql==true){
         $_SESSION['idwedd'] = $number;
+        $_SESSION['idname'] = $name;
+        $_SESSION['iddate'] = $date;
+        $_SESSION=$_GET['$bid'];
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }
@@ -61,7 +65,7 @@ else
 <body>
     <form action="seminar.php" method = "post" enctype="multipart/form-data">
         <table class="center" frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px">
-<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Plan your big ideas</th></tr>
+<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Book your Big Day</th></tr>
       
 <tr>
 <th>NAME</th>
@@ -75,7 +79,6 @@ else
     <option value="promotions">promotions</option>
     </select></td></tr>
 <br><br>
-
 <tr>
 <th>VENUE NAME</th>       
 <td>

@@ -25,11 +25,12 @@ else
     $number=$_POST["number"];
     $time=$_POST["time"];
     session_start();
-    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time','$status')";
+    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time','$status','$bid')";
     if($sql==true){
         $_SESSION['idwedd'] = $number;
         $_SESSION['idname'] = $name;
         $_SESSION['iddate'] = $date;
+        $_SESSION['idbid']=$bid;
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }

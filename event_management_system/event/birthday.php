@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <?php
@@ -25,9 +24,11 @@ else
     $number=$_POST["number"];
     $time=$_POST["time"];
     session_start();
-    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time')";
+    $sql="insert into bookingtable values ('$name','$etype','$vname','$number','$date','$time','$status','$bid')";
     if($sql==true){
         $_SESSION['idwedd'] = $number;
+        $_SESSION['idname'] = $name;
+        $_SESSION['iddate'] = $date;
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }
@@ -61,7 +62,7 @@ else
 <body>
     <form action="birthday.php" method = "post" enctype="multipart/form-data">
         <table class="center" frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px">
-<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Celebrate each moment with us</th></tr>
+<tr><th colspan="3" style="text-align:center;font-size:25px" height="30px">Book your Big Day</th></tr>
       
 <tr>
 <th>NAME</th>
@@ -71,10 +72,11 @@ else
 <th>EVENT TYPE</th>
 <td colspan="2"><select name="etype">
     <option value="entertainment shows" >entertainment shows</option>
-    <option value=" birthday">birthday</option>
-    <option value=" celebrity events">celebrity events</option>
-    <option value=" stage shows">stage shows</option></select></td></tr>
+    <option value="birthdays" >birthdays</option>
+    <option value="celebrity events" >celebrity events</option>
+    <option value="stage shows" >stage shows</option></select></td></tr>
 <br><br>
+
 
 <tr>
 <th>VENUE NAME</th>       
