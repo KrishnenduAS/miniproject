@@ -31,7 +31,7 @@ else
         $_SESSION['idwedd'] = $number;
         $_SESSION['idname'] = $name;
         $_SESSION['iddate'] = $date;
-        $_SESSION=$_GET['$bid'];
+        $_SESSION['idbid']=$bid;
 	header('location:next.php');}
     $result=mysqli_query($conn,$sql);
 }

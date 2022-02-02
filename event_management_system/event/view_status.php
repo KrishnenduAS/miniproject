@@ -24,42 +24,62 @@ th {
 }
             </style>
 </head>
-<body><h1>ALL BOOKINGS</h1>
+<body><h1>VIEW STATUS</h1>
     <form action=" " method = "post" enctype="multipart/form-data">
     <table  frame="box" cellpadding="16"  style="border:2px solid black;padding:8px">
         <thead>
 
 <tr>
-<th>EQUIPMENTS</th>
-<th>FOOD</th>
-<th>DECORATIONS</th>
-<th>FLOWERS</th>
-<th>SEATING</th>
 <th>NAME</th>
+<th>EVENT TYPE</th>
+<th>VENUE NAME</th>
+<th>NO:OF GUESTS</th>
 <th>DATE</th>
-<th>B:ID</th>
+<th>TIME</th>
+<th>BOOKING ID</th>
+<th>STATUS</th>
 </tr>
 </thead>
 <?php
+session_start();
 include "dbconnection.php";
-$query="select * from bookingdetails";
-$query_run=mysqli_query($conn,$query);
+if(isset($_SESSION['login_user']))
+{
+$query_run=mysqli_query($conn,"SELECT * FROM bookingtable where 'name'=$_SESSION[login_user]");
 while($row=mysqli_fetch_array($query_run))
 {
     ?>
+    
     <tr>
-    <td><?php echo $row['equipment']; ?></td>
-    <td><?php echo $row['food']; ?></td>
-    <td><?php echo $row['decoration']; ?></td>
-    <td><?php echo $row['flower']; ?></td>
-    <td><?php echo $row['seating']; ?></td>
     <td><?php echo $row['name']; ?></td>
+    <td><?php echo $row['etype']; ?></td>
+    <td><?php echo $row['vname']; ?></td>
+    <td><?php echo $row['number']; ?></td>
     <td><?php echo $row['date']; ?></td>
+    <td><?php echo $row['time']; ?></td>
     <td><?php echo $row['bid']; ?></td>
+    <td>
+    <?php
+        if($row['status']==1)
+        {
+            
+            echo '<button style="background-color:#4CAF50;"> Confirmed </button>';
+           
+        }
+        else 
+        {
+            echo '<button style="background-color:#f54542;"> In Process</button>';
+        }
+    
+    ?>
+    
+    </td>
     </tr>
     <?php
 }
+}
 ?>
+
 </table>
 </form>
 

@@ -41,7 +41,7 @@ a:hover, a:active {
 </td>
 </tr>
 <tr><br>
-<td><a href="editfeedback.php" target="main"><h3>Edit Feedback</h3></a>
+<td><a href="editfeedback.php" target="main"><h3>Feedback</h3></a>
 </td>
 </tr>
 <tr><br>

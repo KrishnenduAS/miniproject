@@ -1,11 +1,4 @@
-<?php
-include "dbconnection.php";
-session_start();
-$q=mysqli_query($conn,"SELECT * FROM usertable where 'name'='$_SESSION[login_user]';");
-$row=mysqli_fetch_assoc($q);
-echo "<b>WELCOME</b> ".$_SESSION['login_user'];
-session_abort();
-?>
+
 <html>
 <head>
     <title>profile</title>
@@ -17,7 +10,7 @@ session_abort();
         }
         </style>
 </head>
-<body style="background-color:#b3568f;">
+<body style="background-color:#b3568f;"><h1>EDIT PROFILE</h1>
 <div class ="container">
 <form method="POST" action="my_profile.php">
 <table border="0" frame="box" cellpadding="10"  style="background:#ffffff;border:4px solid black;padding:8px" align="center">

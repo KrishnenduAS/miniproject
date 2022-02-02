@@ -4,6 +4,7 @@
 <html>
 <?php
 include "dbconnection.php";
+session_start();
 if(isset($_POST['submit']))
 {
     
@@ -16,10 +17,10 @@ if($num==1)
 {
     echo '<script>alert("THE CURRENT DATE AND VENUE IS NOT AVAILABLE")</script>';
 	
-	
 }
 else
 {
+    
     $name=$_POST['name'];
     $etype=$_POST["etype"];
     $number=$_POST["number"];

@@ -24,7 +24,7 @@ th {
 }
             </style>
 </head>
-<body>
+<body><h1>VENUE DETAILS </h1>
     <form action=" " method = "post" enctype="multipart/form-data">
     <table  frame="box" cellpadding="16"  style="border:2px solid black;padding:8px">
         <thead>

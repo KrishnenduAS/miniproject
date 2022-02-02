@@ -24,7 +24,7 @@ th {
 }
             </style>
 </head>
-<body>
+<body><h1>VIEW BOOKING</h1>
     <form action=" " method = "post" enctype="multipart/form-data">
     <table  frame="box" cellpadding="16"  style="border:2px solid black;padding:8px">
         <thead>
@@ -57,12 +57,13 @@ while($row=mysqli_fetch_array($query_run))
     <?php
         if($row['status']==1)
         {
-            echo '<p><button  style="background-color:#4CAF50 ;"><a href="status.php?bid='.$row['bid'].'&status=0" >Confirmed</a></button></p>';
+            
            
+            echo '<p><button  style="background-color:#4CAF50;"><a href="status.php?bid='.$row['bid'].'&status=0">Confirmed </a></button></p>';
         }
         else
         {
-            echo '<p><button  style="background-color:#f54542;"><a href="status.php?bid='.$row['bid'].'&status=1">Confirm</a></button></p>';
+            echo '<p><button  style="background-color:#f54542;"><a href="status.php?bid='.$row['bid'].'&status=1" >Approve</a></button></p>';
         }
 
     ?>

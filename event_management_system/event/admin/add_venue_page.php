@@ -60,7 +60,7 @@ session_abort();
 	}
             </style>
 </head>
-<body>
+<body><h1>ADD VENUE </h1>
     <form action="add_venue_page.php" method = "post" enctype="multipart/form-data">
         <table frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px" align="center">
 <tr><th colspan="3" style="text-align:center;font-size:25px" height="50px">Add Venue</th></tr>

@@ -1,11 +1,4 @@
-<?php
-include "dbconnection.php";
-session_start();
-$q=mysqli_query($conn,"SELECT * FROM feedbacktable where 'name'='$_SESSION[login_user]';");
-$row=mysqli_fetch_assoc($q);
-echo "<b>WELCOME</b> ".$_SESSION['login_user'];
-session_abort();
-?>
+
 <?php
 session_start();
 if(isset($_POST['submit']))
@@ -49,7 +42,7 @@ session_abort();
 	}
             </style>
 </head>
-<body>
+<body><h1>ADD FEEDBACK</h1>
     <form action="feedback.php" method = "post" enctype="multipart/form-data">
         <table frame="box" cellpadding="16"  style="background:#ffffff;border:2px solid black;padding:8px" align="center">
 <tr><th colspan="3" style="text-align:center;font-size:25px" height="50px">Add Feedbacks</th></tr>

@@ -1,3 +1,11 @@
+<?php
+include "dbconnection.php";
+session_start();
+$q=mysqli_query($conn,"SELECT * FROM usertable where 'name'='$_SESSION[login_user]';");
+$row=mysqli_fetch_assoc($q);
+echo "<b>WELCOME</b> ".$_SESSION['login_user'];
+session_abort();
+?>
 <html>
 <head>
 </head>
@@ -16,7 +24,7 @@ a:link,a:visited
 {
   background-color: #b3568f;
   color: white;
-  padding: 10px 25px;
+  padding: 4px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -39,6 +47,11 @@ a:active,a:hover {
 <tr><br>
 <td>
 <a href="new_booking.php" target="main"><h3>New Booking</h3></a>
+</td>
+</tr>
+<tr><br>
+<td>
+<a href="view_status.php" target="main"><h3>View Status</h3></a>
 </td>
 </tr>
 <tr><br>
