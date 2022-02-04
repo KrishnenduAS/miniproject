@@ -98,7 +98,7 @@ a:hover {
 <a href="\event_management_system\event\home.php" class="previous">&laquo; Previous</a>
 <h1 style="text-align:center">WELCOME USER!!!</h1>
 
-<form method="POST" action="registration.php">
+<form method="POST" action="registration.php" name="form" onsubmit="return validateForm()">
 <table border="0" frame="box" cellpadding="10"  style="background:#ffffff;border:4px solid black;padding:8px" align="center">
 <tr><th colspan="3" style="text-align:center;font-size:25px" height="50px">Registration Form</th></tr>
 <tr>
@@ -137,35 +137,55 @@ a:hover {
 
 </table>
 </form>
-
-</body>
 <script>
-          
-            // Function to check Whether both passwords
-            // is same or not.
-            function checkPassword(form) {
-                password = form.password.value;
-                password1 = form.password1.value;
-  
-                // If password not entered
-                if (password == '')
-                    alert ("Please enter Password");
-                      
-                // If confirm password not entered
-                else if (password1 == '')
-                    alert ("Please enter confirm password");
-                      
-                // If Not same return False.    
-                else if (password != password1) {
-                    alert ("\nPassword did not match: Please try again...")
-                    return false;
-                }
-  
-                // If same return True.
-                else{
-                    alert("Password Match: Welcome to GeeksforGeeks!")
-                    return true;
-                }
+        function validateForm() {
+            var name = document.form.name.value;
+            var mobile = document.form.mobile.value;
+            var password1 = document.form.password1.value;
+            var password = document.form.password.value;
+            var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var ren = /[0-9!@#$%^&*]/
+
+            if (name == "") {
+                alert("Enter First Name !!");
+                document.form.name.focus();
+                return false;
             }
-        </script>
+            else if(ren.test(name)){
+                alert("Enter Valid Name !!");
+                document.form.name.focus();
+                return false;
+            }
+
+            if (mobile == "") {
+                alert("Enter Mobile number");
+                return false;
+            }
+            else if (isNaN(mobile)) {
+                alert("Enter valid Mobile number");
+                return false;
+            }
+            else if (mobile.length != 10) {
+                alert("Enter Mobile number with 10 digit");
+                return false;
+            }
+
+            
+
+            if (password == "" || password.length < 8 || !re.test(password)) {
+                alert("Enter minimum 8 digit Password !!" + '\n' + "Atleast one Lowercase & uppercase & digti & special charecter must be included");
+                document.form.password.focus();
+                return false;
+            }
+            
+            if (password1 == "" || password1.length < 8 || !re.test(password1)) {
+                alert("Enter minimum 8 digit Password !!" + '\n' + "Atleast one Lowercase & uppercase & digti & special charecter must be included");
+                document.form.password1.focus();
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
 </html>

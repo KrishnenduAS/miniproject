@@ -12,7 +12,7 @@
 </head>
 <body style="background-color:#b3568f;"><h1>EDIT PROFILE</h1>
 <div class ="container">
-<form method="POST" action="my_profile.php">
+<form method="POST" action="my_profile.php" name="form"  onsubmit="return validateForm()">
 <table border="0" frame="box" cellpadding="10"  style="background:#ffffff;border:4px solid black;padding:8px" align="center">
 <tr><th colspan="3" style="text-align:center;font-size:25px" height="50px">Update Form</th></tr>
 <tr>
@@ -71,6 +71,53 @@ if(isset($_POST['update']))
 
 </div>
 </div>
+<script>
+        function validateForm() {
+            var name = document.form.name.value;
+            var mobile = document.form.mobile.value;
+            var password1 = document.form.password1.value;
+            var password = document.form.password.value;
+            var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var ren = /[0-9!@#$%^&*]/
 
+            if (name == "") {
+                alert("Enter First Name !!");
+                document.form.name.focus();
+                return false;
+            }
+            else if(ren.test(name)){
+                alert("Enter Valid Name !!");
+                document.form.name.focus();
+                return false;
+            }
+
+            if (mobile == "") {
+                alert("Enter Mobile number");
+                return false;
+            }
+            else if (isNaN(mobile)) {
+                alert("Enter valid Mobile number");
+                return false;
+            }
+            else if (mobile.length != 10) {
+                alert("Enter Mobile number with 10 digit");
+                return false;
+            }
+
+            
+
+            if (password == "" || password.length < 8 || !re.test(password)) {
+                alert("Enter minimum 8 digit Password !!" + '\n' + "Atleast one Lowercase & uppercase & digti & special charecter must be included");
+                document.form.password.focus();
+                return false;
+            }
+            if (password1 == "" || password1.length < 8 || !re.test(password1)) {
+                alert("Enter minimum 8 digit Password !!" + '\n' + "Atleast one Lowercase & uppercase & digti & special charecter must be included");
+                document.form.password1.focus();
+                return false;
+            }
+
+        }
+    </script>
 </body>
 </html>
