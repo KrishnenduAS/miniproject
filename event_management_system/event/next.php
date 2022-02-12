@@ -7,84 +7,78 @@ $number = -999;
    $number = $_SESSION['idwedd'];
   
  }
-if(isset($_POST["choice"])){
-  $food=$_POST["choice"];
+if(isset($_POST["equipment"])){
+  $food=$_POST["equipment"];
   $c=count($food);
   $price=0.0;
   
   for($i=0;$i<$c;$i++){
-    if($food[$i]==1){
-      $price=$price+5000;
-    }
-    if($food[$i]==2){
+    
+    if($food[$i]=="STAGE,MIKE $ SPEAKER"){
       $price=$price+5000;
     }
   
-    if($food[$i]==3){
+    if($food[$i]=="DJ,STAGE"){
       $price=$price+5000;
     }
-    if($food[$i]==4){
-      $price=null0*$number;
+    if($food[$i]=="DJ"){
+      $price=$price+1000;
     }
-    if($food[$i]==5){
+    if($food[$i]=="BREAKFAST"){
       $price=150*$number;
     }
-    if($food[$i]==6){
-      $price=null0*$number;
+    if($food[$i]=="LUNCH"){
+      $price=110*$number;
     }
-    if($food[$i]==7){
+    if($food[$i]=="TEA $ SNACKS"){
       $price=200*$number;
     }
-    if($food[$i]==8){
-      $price=200*$number;
-    }
-    if($food[$i]==9){
+    
+    if($food[$i]=="BREAKFAST $ LUNCH"){
       $price=200*$number;
     }
 
     
-    if($food[$i]==null){
+    if($food[$i]=="null"){
       $price=$price+0;
     }
-    if($food[$i]==11){
-      $price=$price+0;
+    if($food[$i]=="LUNCH $ DINNER"){
+      $price=$price+200;
     }
-    if($food[$i]==12){
+    if($food[$i]=="Normal"){
+      $price=$price+2500;
+    }
+    if($food[$i]=="Delux"){
       $price=$price+3500;
     }
-    if($food[$i]==13){
+    if($food[$i]=="Royal"){
       $price=$price+4500;
     }
-    if($food[$i]==14){
-      $price=$price+1500;
-    }
-    if($food[$i]==15){
+    if($food[$i]=="None"){
       $price=$price+0;
     }
-    if($food[$i]==16){
-      $price=$price+0;
-    }
-    if($food[$i]==17){
+    
+    if($food[$i]=="CHAIR"){
       $price=$price+4000;
     }
-    if($food[$i]==18){
+    if($food[$i]=="SOFA"){
       $price=$price+4500;
     }
-    if($food[$i]==19){
+    if($food[$i]=="CHAIR AND SOFA"){
       $price=$price+5000;
     }
-    if($food[$i]==20){
-      $price=$price+0;
-    }
-    if($food[$i]==21){
-      $price=150*$number;
-    }
-    if($food[$i]==22){
-      $price=300*$number;
-    }
-    if($food[$i]==23){
-      $price=200*$number;
-    }
+    //if($food[$i]==20){
+      //$price=$price+0;
+    //}
+    //if($food[$i]==21){
+      //$price=150*$number;
+   // }
+    //if($food[$i]==22){
+      //$price=300*$number;
+    //}
+    //if($food[$i]==23){
+      //$price=200*$number;
+    //}
    
   }
   
@@ -203,10 +197,10 @@ th, td {
     <td>
     <div class="custom-select" style="width:200px;">
      <select name="equipment">
-     <option value="null">Select:</option>
-    <option value="STAGE,MIKE $ SPEAKER">STAGE,MIKE $ SPEAKER</option>
-    <option value="DJ,STAGE">DJ,STAGE</option>
-    <option value="DJ">DJ</option>
+     <option value="null" name="equipment">Select:</option>
+    <option value="STAGE,MIKE $ SPEAKER"  name="equipment">STAGE,MIKE $ SPEAKER</option>
+    <option value="DJ,STAGE"  name="equipment">DJ,STAGE</option>
+    <option value="DJ"  name="equipment">DJ</option>
    
     </td><br>
 </tr>
@@ -228,12 +222,10 @@ th, td {
     <td>DECORATIONS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select name="decoration">
-    <option value="null" >Select decoration:</option>
-    <option value="None">None</option>
-    <option value="Normal">Normal</option>
-    <option value="Delux">Delux</option>
-    <option value="Royal">Royal</option>
+    <input type="radio" name="decoration" value="None" id="radio">None</input>
+    <input type="radio" name="decoration" value="Normal">Normal</input>
+    <input type="radio" name="decoration" value="Delux">Delux</input>
+    <input type="radio" name="decoration" value="Royal">Royal</input>
     </td>
 </tr>
 <br>
@@ -241,12 +233,11 @@ th, td {
 <td>FLOWERS</td>
     <td>
     <div class="custom-select" style="width:200px;">
-     <select name="flower"> 
-    <option value="null" >Select:</option>
-    <option value="None">None</option>
-    <option value="Normal" >Normal</option>
-    <option value="Delux" >Delux</option>
-    <option value="Royal" >Royal</option>
+    <input type="radio" name="flower" value="None" id="radio">None</input>
+    <input type="radio" name="flower" value="Normal">Normal</input>
+    <input type="radio" name="flower" value="Delux">Delux</input>
+    <input type="radio" name="flower" value="Royal">Royal</input>
+
 
     </td>
     </tr>
