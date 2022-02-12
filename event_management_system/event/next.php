@@ -102,6 +102,21 @@ if(isset($_POST["choice"])){
 <!DOCTYPE html>
 <html>
 <style>
+  th,td{
+		width:150px;
+		text-align:left;
+		
+	}
+  table {
+  border-collapse: collapse;
+  width: 150%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
 /* The container */
 .container {
   display: block;
@@ -248,10 +263,25 @@ if(isset($_POST["choice"])){
     </td>
     </tr>
     
+    
     <tr><td>
-      <input type="submit" value="SUBMIT" name="submit"/></td>
-      <td>
+      </td>
       
+      <td><input  style="background-color:#6b99e3;" type="submit" value="SUBMIT" name="submit"/>
+      </td>
+      
+      </tr>
+      <tr><td>TOTAL AMOUNT</td>
+      
+      <td>
+      <input  type="text"  name="price"/></td>
+      
+      </tr>
+        <tr>
+<td></td>
+<td>
+
+      <input style="background-color:#6b99e3;" type="submit" value="CONFIRM" name="confirm"/></td></tr>
 <?php
 include "dbconnection.php";
 if(isset($_POST['submit']))
