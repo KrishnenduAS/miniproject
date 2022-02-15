@@ -7,83 +7,7 @@ $number = -999;
    $number = $_SESSION['idwedd'];
   
  }
-if(isset($_POST["equipment"])){
-  $food=$_POST["equipment"];
-  $c=count($food);
-  $price=0.0;
-  
-  for($i=0;$i<$c;$i++){
-    
-    if($food[$i]=="STAGE,MIKE $ SPEAKER"){
-      $price=$price+5000;
-    }
-  
-    if($food[$i]=="DJ,STAGE"){
-      $price=$price+5000;
-    }
-    if($food[$i]=="DJ"){
-      $price=$price+1000;
-    }
-    if($food[$i]=="BREAKFAST"){
-      $price=150*$number;
-    }
-    if($food[$i]=="LUNCH"){
-      $price=110*$number;
-    }
-    if($food[$i]=="TEA $ SNACKS"){
-      $price=200*$number;
-    }
-    
-    if($food[$i]=="BREAKFAST $ LUNCH"){
-      $price=200*$number;
-    }
-
-    
-    if($food[$i]=="null"){
-      $price=$price+0;
-    }
-    if($food[$i]=="LUNCH $ DINNER"){
-      $price=$price+200;
-    }
-    if($food[$i]=="Normal"){
-      $price=$price+2500;
-    }
-    if($food[$i]=="Delux"){
-      $price=$price+3500;
-    }
-    if($food[$i]=="Royal"){
-      $price=$price+4500;
-    }
-    if($food[$i]=="None"){
-      $price=$price+0;
-    }
-    
-    if($food[$i]=="CHAIR"){
-      $price=$price+4000;
-    }
-    if($food[$i]=="SOFA"){
-      $price=$price+4500;
-    }
-    if($food[$i]=="CHAIR AND SOFA"){
-      $price=$price+5000;
-    }
-    //if($food[$i]==20){
-      //$price=$price+0;
-    //}
-    //if($food[$i]==21){
-      //$price=150*$number;
-   // }
-    //if($food[$i]==22){
-      //$price=300*$number;
-    //}
-    //if($food[$i]==23){
-      //$price=200*$number;
-    //}
-   
-  }
-  
-  echo "----------Final amount is : -------".$price. "<br>" ;
-}
+ 
 
 
 //session_destroy();
@@ -189,7 +113,7 @@ th, td {
 <body style="background-color:#b3568f;">
 </style>
 <body>
-<form action=" " method="post">
+<form action="" method="post">
 <h1>Complete your Booking...</h1>
 <table>
 <tr>
@@ -198,8 +122,8 @@ th, td {
     <div class="custom-select" style="width:200px;">
      <select name="equipment">
      <option value="null" name="equipment">Select:</option>
-    <option value="STAGE,MIKE $ SPEAKER"  name="equipment">STAGE,MIKE $ SPEAKER</option>
-    <option value="DJ,STAGE"  name="equipment">DJ,STAGE</option>
+    <option value="STAGE_MIKE_SPEAKER"  name="equipment">STAGE,MIKE $ SPEAKER</option>
+    <option value="DJ_STAGE"  name="equipment">DJ,STAGE</option>
     <option value="DJ"  name="equipment">DJ</option>
    
     </td><br>
@@ -213,10 +137,10 @@ th, td {
      <option value="null" >Select</option>
     <option value="BREAKFAST">BREAKFAST</option>
     <option value="LUNCH">LUNCH</option>
-    <option value="TEA $ SNACKS">TEA $ SNACKS</option>
+    <option value="TEA_SNACKS">TEA $ SNACKS</option>
     <option value="DINNER">DINNER</option>
-    <option value="BREAKFAST $ LUNCH">BREAKFAST $ LUNCH</option>
-    <option value="LUNCH $ DINNER">LUNCH $ DINNER</option>
+    <option value="BREAKFAST_LUNCH">BREAKFAST $ LUNCH</option>
+    <option value="LUNCH_DINNER">LUNCH $ DINNER</option>
     </td>
     <tr>
     <td>DECORATIONS</td>
@@ -249,7 +173,7 @@ th, td {
     <option value="null">Select:</option>
     <option value="CHAIR" >CHAIR</option>
     <option value="SOFA" >SOFA</option>
-    <option value="CHAIR AND SOFA" >CHAIR AND SOFA</option>
+    <option value="CHAIR_AND_SOFA" >CHAIR AND SOFA</option>
    
     </td>
     </tr>
@@ -258,27 +182,26 @@ th, td {
     <tr><td>
       </td>
       
-      <td><input  style="background-color:#6b99e3;" type="submit" value="SUBMIT" name="submit"/>
+      <td><input  style="background-color:#6b99e3;" type="submit" value="SUBMIT" name="calculate"/>
       </td>
       
       </tr>
       <tr><td>TOTAL AMOUNT</td>
       
       <td>
-      <input  type="text"  name="price"/></td>
+      <input  type="text"  id="amountShow"  name="price"/></td>
       
       </tr>
         <tr>
 <td></td>
 <td>
 
-      <input style="background-color:#6b99e3;" type="submit" value="CONFIRM" name="confirm"/></td></tr>
+      <input style="background-color:#6b99e3;"  type="submit" value="CONFIRM" name="confirm"/></td></tr>
 <?php
 include "dbconnection.php";
-if(isset($_POST['submit']))
+if(isset($_POST['calculate']))
 {
-    
- 
+  //echo "<script>alert('ok0')</script>";
     $equipment=$_POST["equipment"];
     $food=$_POST["food"];
     $decoration=$_POST["decoration"];
@@ -287,8 +210,102 @@ if(isset($_POST['submit']))
     $name=$_SESSION['idname'];
     $date=$_SESSION['iddate'];
     $bid=$_SESSION['idbid'];
-    $sql="insert into bookingdetails values ('$equipment','$food','$decoration','$flower','$seating','$name','$date','$bid')";
-    $result=mysqli_query($conn,$sql);
+    $price=1;
+    //echo "<script>alert('ok1')</script>";
+    
+
+   
+//
+
+ 
+  $price=0.0;
+  
+ 
+  if($equipment=="null"){
+    $price=$price+0;
+  }
+    if($equipment=="STAGE_MIKE_SPEAKER"){
+      $price=$price+5000;
+    }
+  
+    if($equipment=="DJ_STAGE"){
+      $price=$price+2500;
+    }
+    if($equipment=="DJ"){
+      $price=$price+1000;
+    }
+    if($food=="null"){
+      $price=$price+0;
+    }
+    if($food=="BREAKFAST"){
+      $price=100*$number;
+    }
+    if($food=="LUNCH"){
+      $price=110*$number;
+    }
+    if($food=="TEA_SNACKS"){
+      $price=100*$number;
+    }
+    if($food=="DINNER"){
+      $price=200*$number;
+    }
+    if($food=="BREAKFAST_LUNCH"){
+      $price=200*$number;
+    }
+
+    if($food=="LUNCH_DINNER"){
+      $price=200*$number;
+    }
+    if($decoration=="None"){
+      $price=$price+0;
+    }
+    if($decoration=="Normal"){
+      $price=$price+2500;
+    }
+    if($decoration=="Delux"){
+      $price=$price+3500;
+    }
+    if($decoration=="Royal"){
+      $price=$price+4500;
+    }
+    if($flower=="None"){
+      $price=$price+0;
+    }
+    if($flower=="Normal"){
+      $price=$price+2500;
+    }
+    if($flower=="Delux"){
+      $price=$price+3500;
+    }
+    if($flower=="Royal"){
+      $price=$price+4500;
+    }
+    
+    
+    if($seating=="CHAIR"){
+      $price=100*$number;
+    }
+    if($seating=="SOFA"){
+      $price=200*$number;
+    }
+    if($seating=="CHAIR_AND_SOFA"){
+      $price=300*$number;
+    }
+    
+  
+  
+  echo "<script>";
+  echo "document.getElementById('amountShow').value=";
+  echo $price;
+  echo "</script>";
+
+
+  $sql="insert into bookingdetails values ('$equipment','$food','$decoration','$flower','$seating','$name','$date','$bid','$price')";
+    if(mysqli_query($conn,$sql)){
+      echo "<script>alert('your booking is under processing, please confirm..')</script>";
+    }else{
+      echo "<script>alert(".mysqli_error($conn).")</script>";
+    }
 }
 ?> 
 </table></form>

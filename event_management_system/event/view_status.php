@@ -45,7 +45,7 @@ session_start();
 include "dbconnection.php";
 if(isset($_SESSION['login_user']))
 {
-$query_run=mysqli_query($conn,"SELECT * FROM bookingtable where 'name'=$_SESSION[login_user]");
+$query_run=mysqli_query($conn,"SELECT * FROM bookingtable where name='$_SESSION[login_user]'");
 while($row=mysqli_fetch_array($query_run))
 {
     ?>
@@ -65,10 +65,12 @@ while($row=mysqli_fetch_array($query_run))
             
             echo '<button style="background-color:#4CAF50;"> Confirmed </button>';
            
+           
         }
         else 
         {
             echo '<button style="background-color:#f54542;"> In Process</button>';
+            
         }
     
     ?>
