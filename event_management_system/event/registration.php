@@ -95,7 +95,7 @@ a:hover {
 	
 	
 <body  style="background-image: url('0.jpg');background-size: cover;">
-<a href="\event_management_system\event\home.php" class="previous">&laquo; Previous</a>
+<a href="\miniproject\event_management_system\event\home.php" class="previous">&laquo; Previous</a>
 <h1 style="text-align:center">WELCOME USER!!!</h1>
 
 <form method="POST" action="registration.php" name="form" onsubmit="return validateForm()">

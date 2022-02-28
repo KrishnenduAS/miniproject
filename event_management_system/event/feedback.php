@@ -1,5 +1,6 @@
 
 <?php
+include "dbconnection.php";
 session_start();
 if(isset($_POST['submit']))
 {
@@ -49,7 +50,7 @@ session_abort();
       
 <tr>
 <th>NAME</th>
-<td colspan="2"><input size="50" name="id" placeholder="id" value="<?php echo $_SESSION['login_user']; ?>" readonly></td></tr>
+<td colspan="2"><input size="50" name="name" placeholder="name" value="<?php echo $_SESSION['login_user']; ?>" readonly></td></tr>
 <br><br>
 <tr>
 <th>EMAIL</th>

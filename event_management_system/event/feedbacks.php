@@ -78,7 +78,7 @@ while($row=mysqli_fetch_array($query_run))
     <tr>
     <td><?php echo $row['name']; ?></td>
     <td><?php echo $row['feed']; ?></td>
-    <td><img src="<?php echo "http://localhost/event_management_system/event/uploads/".$row['fimage'];  ?>" height="100px" width="150px"></td>
+    <td><img src="<?php echo "http://localhost/miniproject/event_management_system/event/uploads/".$row['fimage'];  ?>" height="100px" width="150px"></td>
 
         
        
